@@ -61,7 +61,7 @@ include('db_connect.php');
                         <input type="file" id="file" name="file" class="form-control" accept="image/gif, image/jpeg, image/png">
                         <p class="small text-muted mt-2">เฉพาะไฟล์ JPG, JPEG, PNG & GIF เท่านั้น</p>
 
-                        <input type="hidden" name="action" value="upload_image">
+                        <input type="hidden" name="action" value="image_porcess.php"> 
                     </div>
 
                     <input  type="submit" name="submit" class="btn btn-success">บันทึกข้อมูล</input>

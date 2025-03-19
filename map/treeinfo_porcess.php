@@ -22,18 +22,23 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_query($conn, $sql)) {
         echo "บันทึกข้อมูลสำเร็จ!";
+        // รับค่า tree_id ล่าสุด
+        $tree = mysqli_insert_id($conn);
+        // ส่งค่า tree_id ไปที่ image_process.php
+        header("Location: image_porcess.php?tree_id=" . $tree);
+        exit();
     } else {
         echo "เกิดข้อผิดพลาด: " . mysqli_error($conn);
     }
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST['action']) && $_POST['action'] == "upload_image") {
-            include('image_porcess.php'); // ถ้าเป็นการอัปโหลด ให้ใช้ไฟล์ image_process.php
-            exit(); // จบการทำงานทันที ไม่ให้โค้ดด้านล่างทำงานต่อ
+        // รับค่า tree_id ล่าสุด
+        $treeID = mysqli_insert_id($conn);
+        // ส่งค่า tree_id ไปที่ image_process.php
+        header("Location: image_porcess.php");
+        exit();
+            
         }
     
     // ปิดการเชื่อมต่อฐานข้อมูล
     mysqli_close($conn);
-}
-}
+
 ?>
