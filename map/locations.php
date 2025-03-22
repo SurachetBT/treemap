@@ -37,7 +37,7 @@ include('db_connect.php');
                     </div>
                     <div class="mb-3">
                         <label for="Soil_type" class="form-label">ประเภทดิน:</label>
-                        <input type="date" id="Soil_type" name="Soil_type" class="form-control" required>
+                        <input type="text" id="Soil_type" name="Soil_type" class="form-control">
                     </div>
                     <div class="mb-3">
                         <label for="start_date" class="form-label">วันที่เริ่มต้น:</label>
