@@ -21,9 +21,8 @@ include('db_connect.php');
         <div class="card">
             <div class="card-body">
                 <h2 class="card-title mb-4">ข้อมูลต้นไม้</h2>
-                <form action="treeinfo_porcess.php" method="POST" enctype="multipart/form-data">
-                
-
+                <form action="treeinfo_process.php" method="POST" enctype="multipart/form-data">
+            
                     <div class="mb-3">
                         <label for="tree_name" class="form-label">ชื่อต้นไม้สามัญ:</label>
                         <input type="text" id="tree_name" name="tree_name" class="form-control">
@@ -57,11 +56,10 @@ include('db_connect.php');
                         <input type="text" id="properties" name="properties" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="file" class="form-label">เลือกไฟล์รูปภาพ:</label>
-                        <input type="file" id="file" name="file" class="form-control" accept="image/gif, image/jpeg, image/png">
+                        <label for="upload" class="form-label">เลือกไฟล์รูปภาพ:</label>
+                        <input type="file" id="upload" name="upload" class="form-control" accept="image/gif, image/jpeg, image/png">
                         <p class="small text-muted mt-2">เฉพาะไฟล์ JPG, JPEG, PNG & GIF เท่านั้น</p>
 
-                        <input type="hidden" name="action" value="image_porcess.php"> 
                     </div>
 
                     <input  type="submit" name="submit" class="btn btn-success">บันทึกข้อมูล</input>

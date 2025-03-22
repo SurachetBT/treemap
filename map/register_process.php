@@ -30,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // เข้ารหัสรหัสผ่านก่อนที่จะบันทึก (โดยใช้ md5)
         $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (u_name,u_lastname,u_email,u_pass,U_phone,role_id) VALUES ('$username','$lastname','$email', '$password','$phone',3)";
+        $sql = "INSERT INTO users (u_name,u_lastname,u_email,u_pass,U_phone,role_id)
+         VALUES ('$username','$lastname','$email', '$password','$phone',3)";
         mysqli_query($conn, $sql);
 
         $_SESSION['u_name'] = $username;
