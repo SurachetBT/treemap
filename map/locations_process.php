@@ -11,12 +11,11 @@
         $Soiltype = mysqli_real_escape_string($conn, $_POST['Soil_type']);
         $current = isset($_POST['is_current']) ? 1 : 0; // 1 = TRUE, 0 = FALSE
         $start_date = $_POST['start_date'];
-        $end_date = $_POST['end_date'];
         $tree_id = intval($_POST['tree_id']); // แปลงเป็น int เพื่อความปลอดภัย
     
         // 1️⃣ เพิ่มข้อมูลใหม่เข้าไปใน locations
-        $sql = "INSERT INTO locations (tree_id, Latitude, Longitude, Soil_type, is_current, start_date, end_date) 
-                VALUES ('$tree_id', '$Latitude', '$Longitude', '$Soiltype', '$current', '$start_date', '$end_date')";
+        $sql = "INSERT INTO locations (tree_id, Latitude, Longitude, Soil_type, is_current, start_date) 
+                VALUES ('$tree_id', '$Latitude', '$Longitude', '$Soiltype', '$current', '$start_date')";
         
         if (mysqli_query($conn, $sql)) {
             // 2️⃣ อัปเดตพิกัดล่าสุดของต้นไม้
