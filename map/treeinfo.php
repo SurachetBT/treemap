@@ -1,6 +1,7 @@
 <!-- register.php -->
 <?php 
-include('db_connect.php'); 
+include('db_connect.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +33,7 @@ include('db_connect.php');
                         <input type="text" id="sci_name" name="sci_name" class="form-control">
                     </div>
                     <div class="mb-3">
-                        <label for="family" class="form-label">วงศ์พรรณไม้:</label>
+                        <label for="Family" class="form-label">วงศ์พรรณไม้:</label>
                         <input type="text" id="Family" name="Family" class="form-control">
                     </div>
                     <div class="mb-3">

@@ -1,7 +1,7 @@
 <!-- dashboard.php -->
 <?php
 session_start();
-if (!isset($_SESSION['u_name'])) {
+if (!isset($_SESSION['u_email'])) {
     header('Location: login.php');
     exit();
 }
@@ -14,7 +14,7 @@ if (!isset($_SESSION['u_name'])) {
     <title>Dashboard</title>
 </head>
 <body>
-    <h2>Welcome, <?php echo $_SESSION['u_name']; ?></h2>
+    <h2>Welcome, <?php echo $_SESSION['u_email']; ?></h2>
     <a href="logout.php">Logout</a>
 </body>
 </html>

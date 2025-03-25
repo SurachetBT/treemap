@@ -17,7 +17,7 @@
 
         // ปรับปรุงข้อมูลในฐานข้อมูล
         $sql = "INSERT INTO locations (tree_id, Latitude, Longitude, Soil_type, is_current, start_date, end_date) 
-                VALUES ('$tree_id', '$Latitude', '$Longitude', '$Soiltype', '$current', '$start_date','$end_date')";
+                VALUES ('$tree_id', '$Latitude', '$Longitude', '$Soiltype', '$current', '$start_date','$end_date')";             
 
         if($current == 1){
             $sql_update = "UPDATE locations SET is_current = 0 WHERE tree_id = $tree_id";
@@ -25,7 +25,7 @@
         }
 
         if (mysqli_query($conn, $sql)) {
-               // 2️⃣ อัปเดตพิกัดล่าสุดของต้นไม้
+               // 2️ อัปเดตพิกัดล่าสุดของต้นไม้
              $sql_update = "UPDATE locations SET Latitude = '$Latitude', Longitude = '$Longitude' WHERE tree_id = $tree_id";
              $conn->query($sql_update);
 
