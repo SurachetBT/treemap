@@ -32,6 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // หากเกิดข้อผิดพลาด ให้ส่งกลับไปที่หน้า login.php พร้อมกับข้อผิดพลาด
     $_SESSION['errors'] = $errors;
-    header('Location: login.php');
+    header('Location: menu.php');
 }
 ?>

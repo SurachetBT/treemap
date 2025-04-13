@@ -3,7 +3,7 @@
      include("db_connect.php"); // เชื่อมต่อฐานข้อมูล
      
      $errors = array();
-
+     
      if (isset($_POST['submit'])) {
         // รับค่าจากฟอร์ม
         $Latitude = floatval($_POST['Latitude']);
@@ -21,11 +21,12 @@
             // 2️⃣ อัปเดตพิกัดล่าสุดของต้นไม้
             $sql_update = "UPDATE locations SET Latitude = '$Latitude', Longitude = '$Longitude' WHERE tree_id = $tree_id";
             $conn->query($sql_update);
-    
-            echo "บันทึกข้อมูลสำเร็จ!";
+            //$output = shell_exec('python http://localhost/treemap/map/main.py'); // เรียกใช้ Python script
+            //echo "บันทึกข้อมูลสำเร็จ!";
         } else {
             echo "เกิดข้อผิดพลาด: " . mysqli_error($conn);
         }
+
     }
     
 ?>

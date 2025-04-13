@@ -4,28 +4,64 @@ include('db_connect.php');
 // ตรวจสอบการเชื่อมต่อฐานข้อมูล
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
+}  
+
+$tree_id = isset($_GET['tree_id']) ? intval($_GET['tree_id']) : 0;
+$tree_name = isset($_GET['tree_name']) ? $_GET['tree_name'] : '';
+
+// ถ้ามี tree_id ให้ใช้มันค้นหา
+if ($tree_id > 0) {
+    $query = "SELECT * FROM trees WHERE tree_id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("i", $tree_id);
+}
+// ถ้าไม่มี tree_id แต่มี tree_name ให้ใช้ tree_name แทน
+elseif (!empty($tree_name)) {
+    $query = "SELECT * FROM trees WHERE tree_name = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("s", $tree_name);
+} else {
+    die("โปรดระบุ tree_id หรือ tree_name");
 }
 
-$tree_id = isset($_GET['tree_id']) ? $_GET['tree_id'] : 0;
-// ดึงข้อมูลจากตาราง trees
-$query = "SELECT * FROM trees WHERE tree_id = $tree_id";
-$result = mysqli_query($conn, $query) or die("Query failed: " . mysqli_error($conn));
+$stmt->execute();
+$result = $stmt->get_result();
 
-// ตรวจสอบว่ามีข้อมูลจากตาราง trees หรือไม่
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+// ตรวจสอบว่าพบข้อมูลหรือไม่
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $tree_id = $row['tree_id']; // เอา tree_id ที่ได้มาใช้หาข้อมูลอื่น
+} else {
+    die("ไม่พบข้อมูลต้นไม้");
 }
+
 // ดึงข้อมูลจากตาราง locations
-$lol = "SELECT * FROM locations WHERE tree_id = $tree_id";
-$result_locations = mysqli_query($conn, $lol) or die("Query failed: " . mysqli_error($conn));
+$lol = "SELECT * FROM locations WHERE tree_id = ?";
+$stmt_loc = $conn->prepare($lol);
+$stmt_loc->bind_param("i", $tree_id);
+$stmt_loc->execute();
+$result_locations = $stmt_loc->get_result();
 
-// ตรวจสอบว่ามีข้อมูลจากตาราง locations หรือไม่
-if ($result_locations && mysqli_num_rows($result_locations) > 0) {
-    $row_locations = mysqli_fetch_assoc($result_locations);
+if ($result_locations && $result_locations->num_rows > 0) {
+    $row_locations = $result_locations->fetch_assoc();
 } else {
     die("No data found in locations table.");
 }
+
+// ดึงข้อมูลจากตาราง treecare
+$care = "SELECT * FROM treecare WHERE tree_id = ?";
+$stmt_care = $conn->prepare($care);
+$stmt_care->bind_param("i", $tree_id);
+$stmt_care->execute();
+$result_treecare = $stmt_care->get_result();
+
+if ($result_treecare && $result_treecare->num_rows > 0) {
+    $row_treecare = $result_treecare->fetch_assoc();
+} else {
+    die("No data found in treecare table.");
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +85,10 @@ if ($result_locations && mysqli_num_rows($result_locations) > 0) {
     <p><strong>สรรพคุณของต้นไม้:</strong> <?php echo htmlspecialchars($row['properties']); ?></p>
     <p><strong>Latitude:</strong> <?php echo htmlspecialchars($row_locations['Latitude']); ?></p>
     <p><strong>Longitude:</strong> <?php echo htmlspecialchars($row_locations['Longitude']); ?></p>
+    <p><strong>ประเภทดิน:</strong> <?php echo htmlspecialchars($row_locations['Soil_type']); ?></p>
+    <p><strong>กิจกรรม:</strong> <?php echo htmlspecialchars($row_treecare['Activity']); ?></p>
+    <p><strong>วันที่ดูแล:</strong> <?php echo htmlspecialchars($row_treecare['Care_date']); ?></p>
+
     <p><strong></strong> <img src="uploads/<?php echo htmlspecialchars($row['Image_url_past']); ?>" alt="Tree Image" style="max-width: 500px;"></p>
 </div>
 
