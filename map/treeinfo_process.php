@@ -9,8 +9,6 @@ if (isset($_POST['submit'])) {
     $sciname = mysqli_real_escape_string($conn, $_POST['sci_name']);
     $family = mysqli_real_escape_string($conn, $_POST['Family']);
     $datetime = $_POST['Date_Time'];
-    $Hight = floatval($_POST['Hight_m']);
-    $TreeCicum = floatval($_POST['Tree_Cicumference_cm']);
     $Status = mysqli_real_escape_string($conn, $_POST['Status_Tree']);
     $properties = mysqli_real_escape_string($conn, $_POST['properties']);
     $filename = ""; // กำหนดค่าเริ่มต้น
@@ -38,13 +36,13 @@ if (isset($_POST['submit'])) {
     }
 
     // เพิ่มข้อมูลลงฐานข้อมูล
-    $sql = "INSERT INTO trees (tree_name, sci_name, Family, Date_Time, Hight_m, Tree_Cicumference_cm, Status_Tree, properties, Image_url_past) 
-            VALUES ('$treename', '$sciname', '$family', '$datetime', '$Hight', '$TreeCicum', '$Status', '$properties', '$filename')";
+    $sql = "INSERT INTO trees (tree_name, sci_name, Family, Date_Time, Status_Tree, properties, Image_url_past) 
+            VALUES ('$treename', '$sciname', '$family', '$datetime', '$Status', '$properties', '$filename')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "✅ บันทึกข้อมูลสำเร็จ!";
+        echo "<script>alert('✅ บันทึกข้อมูลสำเร็จ!'); window.location.href='locations.php';</script>";
     } else {
-        echo "❌ ไม่สามารถบันทึกข้อมูล: " . mysqli_error($conn);
+        "<script>alert('❌ ไม่สามารถบันทึกข้อมูล: " . mysqli_error($conn) . "');</script>";
     }
 }
 ?>

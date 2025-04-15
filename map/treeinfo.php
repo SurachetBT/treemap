@@ -83,14 +83,6 @@
                             <input type="date" id="Date_Time" name="Date_Time" class="form-control" required>
                         </div>
                         <div class="form-group mb-3">
-                            <i class="bi bi-arrows-vertical form-icon"></i>
-                            <input type="text" id="Hight_m" name="Hight_m" class="form-control" placeholder="ความสูง (เมตร)" step="0.01" required>
-                        </div>
-                        <div class="form-group mb-3">
-                            <i class="bi bi-circle-half form-icon"></i>
-                            <input type="text" id="Tree_Cicumference_cm" name="Tree_Cicumference_cm" class="form-control" placeholder="เส้นรอบวง (เซนติเมตร)" step="0.01" required>
-                        </div>
-                        <div class="form-group mb-3">
                             <i class="bi bi-heart-pulse form-icon"></i>
                             <input type="text" id="Status_Tree" name="Status_Tree" class="form-control" placeholder="สุขภาพของต้นไม้">
                         </div>

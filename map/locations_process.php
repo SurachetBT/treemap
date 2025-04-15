@@ -21,10 +21,9 @@
             // 2️⃣ อัปเดตพิกัดล่าสุดของต้นไม้
             $sql_update = "UPDATE locations SET Latitude = '$Latitude', Longitude = '$Longitude' WHERE tree_id = $tree_id";
             $conn->query($sql_update);
-            //$output = shell_exec('python http://localhost/treemap/map/main.py'); // เรียกใช้ Python script
-            //echo "บันทึกข้อมูลสำเร็จ!";
+            echo "<script>alert('✅ บันทึกข้อมูลสำเร็จ!'); window.location.href='treecare.php';</script>";
         } else {
-            echo "เกิดข้อผิดพลาด: " . mysqli_error($conn);
+            echo "<script>alert('❌ ไม่สามารถบันทึกข้อมูล: " . mysqli_error($conn) . "');</script>";
         }
 
     }

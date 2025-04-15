@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Menu</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -120,17 +123,44 @@
   </style>
 </head>
 <body>
-    <div class="menu-container">
-        <!-- ปุ่มค้นหาต้นไม้ -->
-        <form class="search-form" action="treeshow.php" method="get">
-      <input type="text" name="tree_name" placeholder="ค้นหาชื่อต้นไม้" required>
-      <button type="submit">ค้นหาต้นไม้</button>
-    </form>
-    <a href="folium_map.php" class="menu-button red-orange"><div class="circle"></div>แผนที่ต้นไม้</a>
+      <div class="menu-container">
+         <!-- ปุ่มค้นหาต้นไม้ -->
+         <form class="search-form" action="treeshow.php" method="get">
+        <input type="text" id="treeSearch" name="tree_name" placeholder="ค้นหาชื่อต้นไม้">
+        <button type="submit">ค้นหาต้นไม้</button>
+        </form>
+    <a href="treeinfo.php" class="menu-button blue"><div class="circle"></div>ข้อมูลต้นไม้</a>
     <a href="locations.php" class="menu-button purple"><div class="circle"></div>ตำแหน่งต้นไม้</a>
     <a href="treecare.php" class="menu-button yellow"><div class="circle"></div>ดูแลต้นไม้</a>
-    <a href="treeinfo.php" class="menu-button blue"><div class="circle"></div>ข้อมูลต้นไม้</a>
+    <a href="treemeasurement.php" class="menu-button blue"><div class="circle"></div>การวัดต้นไม้</a>
+    <a href="folium_map.php" class="menu-button red-orange"><div class="circle"></div>แผนที่ต้นไม้</a>
     <a href="logout.php" class="menu-button pink"><div class="circle"></div>ออกจากระบบ</a>
   </div>
+  
+<script>
+$(function() {
+    $("#treeSearch").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: "menu_process.php", // ไฟล์ PHP ที่ให้คำแนะนำ
+                dataType: "json",
+                data: {
+                    term: request.term
+                },
+                success: function(data) {
+                    response(data);
+                }
+            });
+        },
+        minLength: 1,
+        select: function(event, ui) {
+            // เมื่อผู้ใช้เลือก suggestion แล้วให้ redirect ไปยัง treeshow.php
+            const selectedTreeName = ui.item.value;
+            //window.location.href = "treeshow.php?tree_name=" + encodeURIComponent(selectedTreeName);
+        }
+    });
+});
+
+</script>
 </body>
 </html>

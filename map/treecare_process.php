@@ -16,9 +16,9 @@ if (isset($_POST['submit'])) {
             VALUES ('$tree_id', '$Activity', '$remarks', '$Care_date', 1)";
     
     if (mysqli_query($conn, $sql)) {
-        echo "✅ บันทึกข้อมูลสำเร็จ!";
+        echo "<script>alert('✅ บันทึกข้อมูลสำเร็จ!'); window.location.href='treemeasurement.php';</script>";
     } else {
-        echo "❌ ไม่สามารถบันทึกข้อมูล: " . mysqli_error($conn);
+        echo "<script>alert('❌ ไม่สามารถบันทึกข้อมูล: " . mysqli_error($conn) . "');</script>";
     }
 }
 ?>
