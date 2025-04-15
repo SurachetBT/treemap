@@ -1,9 +1,9 @@
 <?php
-session_start();
 include('db_connect.php'); // เชื่อมต่อฐานข้อมูล
-
 $errors = array();
-?>
+require_once 'check_admin.php';
+requireRole([1,2]); // Admin และ Employee ?>
+
 
 <!DOCTYPE html>
 <html lang="th">

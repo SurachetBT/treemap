@@ -1,7 +1,8 @@
 <?php
-session_start();
 include('db_connect.php');
 $errors = array();
+require_once 'check_admin.php';
+requireRole([1,2]); // Admin และ Employee มีสิทธิ์เข้าถึง
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,8 @@
 <?php
-include("check_auth.php"); // เช็กว่าล็อกอินหรือยัง
-if ($_SESSION["role_id"] !== 1) {
-    die("คุณไม่มีสิทธิ์เข้าถึงหน้านี้!");
+function requireRole($allowedRoles = []) {
+    session_start();
+    if (!isset($_SESSION['role_id']) || !in_array($_SESSION['role_id'], $allowedRoles)) {
+        header("Location: no_permission.php");
+        exit();
+    }
 }
-?>
-//เเก่ไขยังไม่เสร็จ

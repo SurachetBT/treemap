@@ -19,7 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password,$row['u_pass'])) {
             // รหัสผ่านถูกต้อง
             $_SESSION['u_email'] = $username;
-            header('Location: folium_map.php');
+            $_SESSION['role_id'] = $row['role_id']; // 🟢 เก็บ role_id ไว้ใช้จำกัดสิทธิ์
+            header('Location: menu.php');
             exit();
         } else {
             // รหัสผ่านไม่ถูกต้อง
@@ -32,6 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // หากเกิดข้อผิดพลาด ให้ส่งกลับไปที่หน้า login.php พร้อมกับข้อผิดพลาด
     $_SESSION['errors'] = $errors;
-    header('Location: menu.php');
+    header('Location: login.php');
 }
 ?>

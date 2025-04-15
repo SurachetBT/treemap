@@ -1,6 +1,7 @@
 <?php 
 include('db_connect.php'); 
-?>
+require_once 'check_admin.php';
+requireRole([1]); // Admin เท่านั้น ?>
 
 <!DOCTYPE html>
 <html lang="th">
