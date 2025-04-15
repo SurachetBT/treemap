@@ -88,7 +88,8 @@ requireRole([1]); // Admin เท่านั้น ?>
                             <input type="text" id="Soil_type" name="Soil_type" class="form-control" placeholder="ประเภทดิน">
                         </div>
                         <div class="form-group mb-3">
-                            <i class="bi bi-calendar-plus form-icon"></i>
+                            <label for="start_date">วันที่เริ่มอยู่</label> 
+                             <i class="bi bi-calendar-plus form-icon"></i>
                             <input type="date" id="start_date" name="start_date" class="form-control">
                         </div>
                         <div class="form-check mb-3">

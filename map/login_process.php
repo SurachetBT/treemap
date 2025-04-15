@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // รหัสผ่านถูกต้อง
             $_SESSION['u_email'] = $username;
             $_SESSION['role_id'] = $row['role_id']; // 🟢 เก็บ role_id ไว้ใช้จำกัดสิทธิ์
-            header('Location: menu.php');
+            header('Location: check.php');
             exit();
         } else {
             // รหัสผ่านไม่ถูกต้อง

@@ -111,6 +111,32 @@ if ($result_treemeasurement && $result_treemeasurement->num_rows > 0) {
         h2 {
             margin-bottom: 30px;
         }
+        .menu-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin: 30px auto;
+            display: table;
+        }
+
+        .menu-button .circle {
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulse 1.5s infinite;
+        }
     </style>
 </head>
 <body>
@@ -154,7 +180,7 @@ if ($result_treemeasurement && $result_treemeasurement->num_rows > 0) {
         <img src="uploads/<?php echo htmlspecialchars($row['Image_url_past']); ?>" alt="Tree Image" class="tree-img mt-3">
     </div>
 </div>
-
+<a href="menu.php" class="menu-button"><div class="circle"></div>กลับสู่หน้าแรก</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

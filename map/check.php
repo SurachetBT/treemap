@@ -1,9 +1,3 @@
-<?php
-include('db_connect.php'); // เชื่อมต่อฐานข้อมูล
-$errors = array();
-require_once 'check_admin.php';
-requireRole([1,2]); // Admin และ Employee ?>
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -130,20 +124,9 @@ requireRole([1,2]); // Admin และ Employee ?>
 </head>
 <body>
       <div class="menu-container">
-         <!-- ปุ่มค้นหาต้นไม้ -->
-         <form class="search-form" action="treeshow.php" method="get">
-        <input type="text" id="treeSearch" name="tree_name" placeholder="ค้นหาชื่อต้นไม้">
-        <button type="submit">ค้นหาต้นไม้</button>
-        </form>
-    <a href="treeinfo.php" class="menu-button blue"><div class="circle"></div>ข้อมูลต้นไม้</a>
-    <a href="locations.php" class="menu-button purple"><div class="circle"></div>ตำแหน่งต้นไม้</a>
-    <a href="treecare.php" class="menu-button yellow"><div class="circle"></div>ดูแลต้นไม้</a>
-    <a href="treemeasurement.php" class="menu-button blue"><div class="circle"></div>การวัดต้นไม้</a>
-    <a href="folium_map.php" class="menu-button red-orange"><div class="circle"></div>แผนที่ต้นไม้</a>
-    <a href="showcare.php" class="menu-button pink"><div class="circle"></div>ประวัติการดูแลต้นไม้</a>
-    <a href="showmeasurement.php" class="menu-button red-orange"><div class="circle"></div>ประวัติการวัดต้นไม้</a>
-    <a href="showlocations.php" class="menu-button purple"><div class="circle"></div>ประวัติพื้นที่การปลุกต้นไม้</a>
-    <a href="check.php" class="menu-button pink"><div class="circle"></div>กลับสู่หน้าแรก</a>
+    <a href="index.php" class="menu-button red-orange"><div class="circle"></div>ผู้ใช้งานทั่วไป</a>
+    <a href="menu.php" class="menu-button purple"><div class="circle"></div>ผู้ดูเเลระบบ</a>
+    <a href="logout.php" class="menu-button pink"><div class="circle"></div>ออกจากระบบ</a>
   </div>
   
 <script>

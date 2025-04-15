@@ -28,8 +28,7 @@
                // 2️ อัปเดตพิกัดล่าสุดของต้นไม้
              $sql_update = "UPDATE locations SET Latitude = '$Latitude', Longitude = '$Longitude' WHERE tree_id = $tree_id";
              $conn->query($sql_update);
-
-            echo "บันทึกข้อมูลสำเร็จ!";
+                echo "<script>alert('✅ บันทึกข้อมูลสำเร็จ!'); window.location.href='menu.php';</script>";
          } else {
                 echo "เกิดข้อผิดพลาด: " . mysqli_error($conn);
            }
@@ -119,10 +118,12 @@
                             <input type="text" id="Soil_type" name="Soil_type" class="form-control" placeholder="ประเภทดิน">
                         </div>
                         <div class="form-group mb-3">
-                            <i class="bi bi-calendar-plus form-icon"></i>
+                            <label for="start_date">วันที่เริ่มอยู่</label> 
+                             <i class="bi bi-calendar-plus form-icon"></i>
                             <input type="date" id="start_date" name="start_date" class="form-control">
                         </div>
                         <div class="form-group mb-3">
+                            <label for="start_date">วันที่ย้ายออก</label>  
                             <i class="bi bi-calendar-x form-icon"></i>
                             <input type="date" id="end_date" name="end_date" class="form-control">
                         </div>

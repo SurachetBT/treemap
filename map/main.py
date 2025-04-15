@@ -29,7 +29,7 @@ def check_new_data():
         folium.Marker(
             location=[Latitude, Longitude],
             popup=folium.Popup(popup_html, max_width=300),
-            icon=folium.Icon(color="green", icon="tree")  # กำหนดสี Marker
+            icon=folium.Icon(color="green", icon="leaf")  # กำหนดสี Marker
         ).add_to(folium_map)
 
     # บันทึกแผนที่ลงในไฟล์
