@@ -68,7 +68,7 @@
     <form action="login_process.php" method="POST">
         <div class="mb-3 position-relative">
             <i class="bi bi-person form-icon"></i>
-            <input type="text" name="u_email" class="form-control" placeholder="Username" required>
+            <input type="text" name="u_email" class="form-control" placeholder="Email" required>
         </div>
         <div class="mb-3 position-relative">
             <i class="bi bi-lock form-icon"></i>

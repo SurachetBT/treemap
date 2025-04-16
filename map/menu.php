@@ -143,6 +143,7 @@ requireRole([1,2]); // Admin และ Employee ?>
     <a href="showcare.php" class="menu-button pink"><div class="circle"></div>ประวัติการดูแลต้นไม้</a>
     <a href="showmeasurement.php" class="menu-button red-orange"><div class="circle"></div>ประวัติการวัดต้นไม้</a>
     <a href="showlocations.php" class="menu-button purple"><div class="circle"></div>ประวัติพื้นที่การปลุกต้นไม้</a>
+    <a href="update.php" class="menu-button blue"><div class="circle"></div>เเก้ไขย้ายตำเเหน่งต้นไม้</a>
     <a href="check.php" class="menu-button pink"><div class="circle"></div>กลับสู่หน้าแรก</a>
   </div>
   

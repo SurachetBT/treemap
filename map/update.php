@@ -1,7 +1,8 @@
 <?php  
      session_start();
      include("db_connect.php"); // เชื่อมต่อฐานข้อมูล
-     
+     require_once 'check_admin.php';
+     requireRole([1]); // Admin เท่านั้น 
      $errors = array();
 
 

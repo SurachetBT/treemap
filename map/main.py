@@ -42,4 +42,4 @@ def check_new_data():
 if __name__ == "__main__":
     while True:
         check_new_data()
-        time.sleep(5)  # ตรวจสอบข้อมูลใหม่ทุกๆ 5 วินาที
+        time.sleep(60)  # ตรวจสอบข้อมูลใหม่ทุกๆ 1 นาที

@@ -93,7 +93,7 @@ requireRole([1]); // Admin เท่านั้น ?>
                             <input type="text" id="properties" name="properties" class="form-control" placeholder="สรรพคุณของต้นไม้">
                         </div>
                         <div class="form-group mb-3">
-                            <i class="bi bi-image form-icon"></i>
+                            <i class="bi bi-image "></i>
                             <input type="file" id="upload" name="upload" class="form-control" accept="image/gif, image/jpeg, image/png">
                             <p class="small text-muted mt-2">เฉพาะไฟล์ JPG, JPEG, PNG & GIF เท่านั้น</p>
                         </div>
