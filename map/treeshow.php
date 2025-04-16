@@ -146,6 +146,7 @@ if ($result_treemeasurement && $result_treemeasurement->num_rows > 0) {
 
     <div class="card p-4 shadow-sm">
         <h5 class="card-title">🌿 รายละเอียดต้นไม้</h5>
+        <p><strong>ตำเเหน่งต้นไม้:</strong> <?php echo htmlspecialchars($row['tree_id']); ?></p>
         <p><strong>ชื่อสามัญ:</strong> <?php echo htmlspecialchars($row['tree_name']); ?></p>
         <p><strong>ชื่อวิทยาศาสตร์:</strong> <?php echo htmlspecialchars($row['sci_name']); ?></p>
         <p><strong>วงศ์พรรณไม้:</strong> <?php echo htmlspecialchars($row['Family']); ?></p>

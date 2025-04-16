@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_c878a387a934e3274fec156165de9605 {
+                #map_a4bfa5ab3e61689eadff1caf01b774af {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,14 +39,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_c878a387a934e3274fec156165de9605" ></div>
+            <div class="folium-map" id="map_a4bfa5ab3e61689eadff1caf01b774af" ></div>
         
 </body>
 <script>
     
     
-            var map_c878a387a934e3274fec156165de9605 = L.map(
-                "map_c878a387a934e3274fec156165de9605",
+            var map_a4bfa5ab3e61689eadff1caf01b774af = L.map(
+                "map_a4bfa5ab3e61689eadff1caf01b774af",
                 {
                     center: [7.007148548620727, 100.49537658960665],
                     crs: L.CRS.EPSG3857,
@@ -63,7 +63,7 @@
 
         
     
-            var tile_layer_d83214b5d2de77447aaa9319109b8c49 = L.tileLayer(
+            var tile_layer_fabed8bd334df7e762436fbfbb4e4337 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -80,17 +80,17 @@
             );
         
     
-            tile_layer_d83214b5d2de77447aaa9319109b8c49.addTo(map_c878a387a934e3274fec156165de9605);
+            tile_layer_fabed8bd334df7e762436fbfbb4e4337.addTo(map_a4bfa5ab3e61689eadff1caf01b774af);
         
     
-            var marker_4e885aeb56743190270850ac495a5094 = L.marker(
-                [7.007697, 100.495903],
+            var marker_eb7a5d2e2210163862e9375ccb0a3068 = L.marker(
+                [7.008126, 100.494164],
                 {
 }
-            ).addTo(map_c878a387a934e3274fec156165de9605);
+            ).addTo(map_a4bfa5ab3e61689eadff1caf01b774af);
         
     
-            var icon_5cd46a2ff8fa4f2c9e78c9d3a0fc6d20 = L.AwesomeMarkers.icon(
+            var icon_20eae8f7a21fffc113a1fcba744405a1 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -99,70 +99,34 @@
   "extraClasses": "fa-rotate-0",
 }
             );
-            marker_4e885aeb56743190270850ac495a5094.setIcon(icon_5cd46a2ff8fa4f2c9e78c9d3a0fc6d20);
+            marker_eb7a5d2e2210163862e9375ccb0a3068.setIcon(icon_20eae8f7a21fffc113a1fcba744405a1);
         
     
-        var popup_49434a47b15e1925dce4abc33afc4bc0 = L.popup({
+        var popup_7af4c6e356a172cf37b6949997cc2885 = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_b16ec70f95b94275810b6c1ec3ebf307 = $(`<div id="html_b16ec70f95b94275810b6c1ec3ebf307" style="width: 100.0%; height: 100.0%;"><a href="treeshow.php?tree_id=1" target="_blank">ดูรายละเอียดต้นไม้ 1</a></div>`)[0];
-                popup_49434a47b15e1925dce4abc33afc4bc0.setContent(html_b16ec70f95b94275810b6c1ec3ebf307);
+                var html_e8c448eec3205780beeb2d68b1b89b8b = $(`<div id="html_e8c448eec3205780beeb2d68b1b89b8b" style="width: 100.0%; height: 100.0%;"><a href="treeshow.php?tree_id=1" target="_blank">ดูรายละเอียดต้นไม้ 1</a></div>`)[0];
+                popup_7af4c6e356a172cf37b6949997cc2885.setContent(html_e8c448eec3205780beeb2d68b1b89b8b);
             
         
 
-        marker_4e885aeb56743190270850ac495a5094.bindPopup(popup_49434a47b15e1925dce4abc33afc4bc0)
+        marker_eb7a5d2e2210163862e9375ccb0a3068.bindPopup(popup_7af4c6e356a172cf37b6949997cc2885)
         ;
 
         
     
     
-            var marker_0a951af5c5ef7a7fbd77f127d6d59716 = L.marker(
-                [7.006834, 100.495033],
+            var marker_3041f7ad42a1a8980afa75e85b5ae219 = L.marker(
+                [7.006614, 100.496674],
                 {
 }
-            ).addTo(map_c878a387a934e3274fec156165de9605);
+            ).addTo(map_a4bfa5ab3e61689eadff1caf01b774af);
         
     
-            var icon_ae5fa0f8432e8cbb0203acc08910ce81 = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "green",
-  "iconColor": "white",
-  "icon": "leaf",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-            marker_0a951af5c5ef7a7fbd77f127d6d59716.setIcon(icon_ae5fa0f8432e8cbb0203acc08910ce81);
-        
-    
-        var popup_ef432451dee133073aba83d38bfc4ffb = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_06c9d7ea802f5041e2a036eaacd4edda = $(`<div id="html_06c9d7ea802f5041e2a036eaacd4edda" style="width: 100.0%; height: 100.0%;"><a href="treeshow.php?tree_id=2" target="_blank">ดูรายละเอียดต้นไม้ 2</a></div>`)[0];
-                popup_ef432451dee133073aba83d38bfc4ffb.setContent(html_06c9d7ea802f5041e2a036eaacd4edda);
-            
-        
-
-        marker_0a951af5c5ef7a7fbd77f127d6d59716.bindPopup(popup_ef432451dee133073aba83d38bfc4ffb)
-        ;
-
-        
-    
-    
-            var marker_5853dc9a5057e4e38cd2f983aea70e9c = L.marker(
-                [7.006834, 100.495033],
-                {
-}
-            ).addTo(map_c878a387a934e3274fec156165de9605);
-        
-    
-            var icon_3c18d58cca95e16974f82adcdc1c95ca = L.AwesomeMarkers.icon(
+            var icon_31543019a972014439ed0e9bed56859d = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -171,57 +135,21 @@
   "extraClasses": "fa-rotate-0",
 }
             );
-            marker_5853dc9a5057e4e38cd2f983aea70e9c.setIcon(icon_3c18d58cca95e16974f82adcdc1c95ca);
+            marker_3041f7ad42a1a8980afa75e85b5ae219.setIcon(icon_31543019a972014439ed0e9bed56859d);
         
     
-        var popup_1d8655efa22dbcb9c38397ac1eadc3ed = L.popup({
+        var popup_7c6b822fc9467a8fb6fa7b6c6e81764c = L.popup({
   "maxWidth": 300,
 });
 
         
             
-                var html_6d03cfdee7d96ee29a0e29ae6808209d = $(`<div id="html_6d03cfdee7d96ee29a0e29ae6808209d" style="width: 100.0%; height: 100.0%;"><a href="treeshow.php?tree_id=2" target="_blank">ดูรายละเอียดต้นไม้ 2</a></div>`)[0];
-                popup_1d8655efa22dbcb9c38397ac1eadc3ed.setContent(html_6d03cfdee7d96ee29a0e29ae6808209d);
+                var html_2cbeb3c4558551364520afd8dbb662bc = $(`<div id="html_2cbeb3c4558551364520afd8dbb662bc" style="width: 100.0%; height: 100.0%;"><a href="treeshow.php?tree_id=2" target="_blank">ดูรายละเอียดต้นไม้ 2</a></div>`)[0];
+                popup_7c6b822fc9467a8fb6fa7b6c6e81764c.setContent(html_2cbeb3c4558551364520afd8dbb662bc);
             
         
 
-        marker_5853dc9a5057e4e38cd2f983aea70e9c.bindPopup(popup_1d8655efa22dbcb9c38397ac1eadc3ed)
-        ;
-
-        
-    
-    
-            var marker_2186623670fe014ec23cd2832cf312f6 = L.marker(
-                [7.007697, 100.495903],
-                {
-}
-            ).addTo(map_c878a387a934e3274fec156165de9605);
-        
-    
-            var icon_df2ddeab8fc6bcadfc66d452d6b9571b = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "green",
-  "iconColor": "white",
-  "icon": "leaf",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-            marker_2186623670fe014ec23cd2832cf312f6.setIcon(icon_df2ddeab8fc6bcadfc66d452d6b9571b);
-        
-    
-        var popup_e20efa78d360f5be98c8121fa418a334 = L.popup({
-  "maxWidth": 300,
-});
-
-        
-            
-                var html_c90225f57e569ca94c76da31a0157f19 = $(`<div id="html_c90225f57e569ca94c76da31a0157f19" style="width: 100.0%; height: 100.0%;"><a href="treeshow.php?tree_id=1" target="_blank">ดูรายละเอียดต้นไม้ 1</a></div>`)[0];
-                popup_e20efa78d360f5be98c8121fa418a334.setContent(html_c90225f57e569ca94c76da31a0157f19);
-            
-        
-
-        marker_2186623670fe014ec23cd2832cf312f6.bindPopup(popup_e20efa78d360f5be98c8121fa418a334)
+        marker_3041f7ad42a1a8980afa75e85b5ae219.bindPopup(popup_7c6b822fc9467a8fb6fa7b6c6e81764c)
         ;
 
         

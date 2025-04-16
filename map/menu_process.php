@@ -5,7 +5,6 @@ header('Content-Type: application/json; charset=utf-8');
 $term = isset($_GET['term']) ? $_GET['term'] : '';
 
 if ($term !== '') {
-    // ป้องกัน SQL Injection และแยกคำ
     $terms = explode(' ', trim($term));
     $like_clauses = [];
 
@@ -15,15 +14,18 @@ if ($term !== '') {
     }
 
     $where_clause = implode(' AND ', $like_clauses);
-    $query = "SELECT tree_name FROM trees WHERE $where_clause LIMIT 10";
+    $query = "SELECT tree_id, tree_name FROM trees WHERE $where_clause LIMIT 10";
 
     $result = mysqli_query($conn, $query);
 
     $suggestions = [];
     while ($row = mysqli_fetch_assoc($result)) {
-        $suggestions[] = $row['tree_name'];
+        $suggestions[] = [
+            'tree_id' => $row['tree_id'],
+            'tree_name' => $row['tree_name']
+        ];
     }
 
-    echo json_encode($suggestions, JSON_UNESCAPED_UNICODE);
+    echo json_encode(['ต้นไม้' => $suggestions], JSON_UNESCAPED_UNICODE);
 }
 ?>

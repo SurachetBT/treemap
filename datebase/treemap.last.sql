@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2025 at 12:50 PM
+-- Generation Time: Apr 16, 2025 at 08:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -52,28 +52,6 @@ CREATE TABLE `locations` (
   `start_date` date NOT NULL,
   `end_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
-
---
--- Dumping data for table `locations`
---
-
-INSERT INTO `locations` (`Locations_id`, `tree_id`, `Latitude`, `Longitude`, `Soil_type`, `role_id`, `is_current`, `start_date`, `end_date`) VALUES
-(1, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-23', '0000-00-00'),
-(2, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-23', NULL),
-(3, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-24', NULL),
-(4, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-24', NULL),
-(5, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-24', NULL),
-(6, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-25', NULL),
-(7, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-25', NULL),
-(8, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-23', NULL),
-(9, 2, 7.007306, 100.495560, '', 1, 0, '0000-00-00', NULL),
-(10, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-23', NULL),
-(11, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-17', NULL),
-(12, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-17', NULL),
-(13, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-23', '2025-03-08'),
-(14, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 0, '2025-03-24', NULL),
-(15, 2, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-24', NULL),
-(16, 1, 7.007306, 100.495560, 'ดินร่วน', 1, 1, '2025-03-16', '2025-03-22');
 
 -- --------------------------------------------------------
 
@@ -134,7 +112,7 @@ CREATE TABLE `treecare` (
 CREATE TABLE `treemeasurement` (
   `measurement_id` int(10) UNSIGNED NOT NULL,
   `tree_id` int(10) UNSIGNED NOT NULL,
-  `Hight_m` decimal(5,2) NOT NULL,
+  `Height_m` decimal(5,2) NOT NULL,
   `Tree_Cicumference_cm` decimal(5,2) NOT NULL,
   `date_height` date NOT NULL,
   `date_circumference` date NOT NULL,
@@ -153,24 +131,12 @@ CREATE TABLE `trees` (
   `sci_name` varchar(255) NOT NULL,
   `Family` varchar(255) NOT NULL,
   `Date_Time` date NOT NULL,
-  `Hight_m` decimal(5,2) NOT NULL,
-  `Tree_Cicumference_cm` decimal(5,2) NOT NULL,
   `Status_Tree` varchar(45) NOT NULL,
   `Update_Date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `role_id` int(10) UNSIGNED NOT NULL DEFAULT 1,
   `properties` varchar(255) DEFAULT NULL,
   `Image_url_past` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf16 COLLATE=utf16_general_ci;
-
---
--- Dumping data for table `trees`
---
-
-INSERT INTO `trees` (`tree_id`, `tree_name`, `sci_name`, `Family`, `Date_Time`, `Hight_m`, `Tree_Cicumference_cm`, `Status_Tree`, `Update_Date`, `role_id`, `properties`, `Image_url_past`) VALUES
-(1, 'ฟ้าทะลายโจร(Kariyat)', 'Andrographis paniculata (Burm.f.) Wall.ex Nees', 'วงศ์เหงือกปลาหมอ(ACANTHACEAE) ', '2025-03-22', 1.56, 3.23, 'ดีมาก', '2025-03-21 19:26:54', 1, 'เเก้ร้อนใน', '67ddbd7e8b188.jpg'),
-(2, 'บัวบก', 'Centella asiatica', 'Apiaceae (วงศ์ผักชี)', '2025-03-22', 1.54, 3.54, 'ดีมาก', '2025-03-21 19:36:42', 1, 'เเก้ร้อนใน', '67ddbfca5a06d.jpg'),
-(3, 'มะม่วง', 'Mangifera Indica', ' Anacardiaceae', '2025-03-22', 2.51, 20.30, 'ดีมาก', '2025-03-21 19:42:18', 1, 'ผลมะม่วงดิบมีวิตามินซีสูง แก้เลือดออกตามไรฟัน', '67ddc11a4b676.png'),
-(5, 'พลูฉลุ', ' Monstera obliqua (Miq.) Walp. ‘Expilata’', 'Araceae', '2025-03-22', 0.80, 60.00, 'ดีมาก', '2025-03-21 19:56:33', 1, 'สวยงาม', '67ddc471e895b.png');
 
 -- --------------------------------------------------------
 
@@ -193,8 +159,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`u_id`, `u_name`, `u_lastname`, `u_email`, `u_pass`, `U_phone`, `role_id`) VALUES
-(1, 'สุรเชษฐ์ ', 'ลิ้มศิริรัศมี', 'gamesurachet2310@gmail.com', '$2y$10$tXlkPGSm9FRfhxNgii6JmO6COKpd8ArUc5oU81NqVbV1w8nFCmbrK', '0801422024', 1),
-(2, 'นานา', 'หมูกะทะ', 'nana@gmail.com', '$2y$10$BYW5WjjGPXECbnVx.tXX6u8rQAlHRFX2trCvM.39V1PF.ehpezBOG', '08014654892', 3);
+(1, 'สุรเชษฐ์ ', 'ลิ้มศิริรัศมี', 'gamesurachet2310@gmail.com', '$2y$10$NoBYwc/K6Z6KzW15K6YGq.quqxrFPz5b6NtkdI1t0suY93RUnitUW', '0801422024', 1),
+(2, 'game', 'game', 'game@gmail.com', '$2y$10$n.4h5ZGQd1zgJiQc/Vrb5e5FN9HoWBbgarqQqbrOITtZwUCh.513a', '0801422024', 2),
+(3, 'ppp', 'nk', 'nat48110@gmail.com', '$2y$10$JrDMitfN/puz9NwoBO0zduji0G2emoV9kocZaeEroXHNdKFvehGEC', '0986715645', 3),
+(4, 'เกม', 'เอง', 'ant@gmail.com', '$2y$10$V4AKfm8aW97oKxgavPO04eElKK1f.PUF/IzM2qykWlpOz/FoPZv0y', '0806412301', 3);
 
 --
 -- Indexes for dumped tables
@@ -250,9 +218,6 @@ ALTER TABLE `treemeasurement`
 --
 ALTER TABLE `trees`
   ADD PRIMARY KEY (`tree_id`),
-  ADD UNIQUE KEY `tree_name` (`tree_name`),
-  ADD UNIQUE KEY `sci_name` (`sci_name`),
-  ADD UNIQUE KEY `Family` (`Family`),
   ADD KEY `FK_trees_roles` (`role_id`);
 
 --
@@ -280,7 +245,7 @@ ALTER TABLE `imageshistory`
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `Locations_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `Locations_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `locationshistory`
@@ -310,13 +275,13 @@ ALTER TABLE `treemeasurement`
 -- AUTO_INCREMENT for table `trees`
 --
 ALTER TABLE `trees`
-  MODIFY `tree_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tree_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `u_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

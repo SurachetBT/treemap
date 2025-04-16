@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
                     // อัปเดตชื่อไฟล์รูปใน record เดิม
                     $update_sql = "UPDATE trees SET Image_url_past='$filename' WHERE tree_id=$last_id";
                     mysqli_query($conn, $update_sql);
-                    echo "<script>alert('✅ อัปโหลดไฟล์และอัปเดตข้อมูลสำเร็จ!'); window.location.href='locations.php';</script>";
+                    echo "✅ อัปโหลดไฟล์และอัปเดตข้อมูลสำเร็จ!";
                 } else {
                     echo "❌ อัปโหลดไฟล์ไม่สำเร็จ!";
                 }

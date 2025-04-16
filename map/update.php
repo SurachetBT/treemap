@@ -1,11 +1,12 @@
 <?php  
-     session_start();
      include("db_connect.php"); // เชื่อมต่อฐานข้อมูล
-     require_once 'check_admin.php';
-     requireRole([1]); // Admin เท่านั้น 
      $errors = array();
 
-
+    // ตรวจสอบการเข้าสู่ระบบ
+     require_once 'check_admin.php';
+     requireRole([1]); // Admin เท่านั้น 
+    
+     
      if (isset($_POST['submit'])) {
         // รับค่าจากฟอร์ม
         $Latitude = floatval($_POST['Latitude']);

@@ -132,7 +132,7 @@ requireRole([1,2]); // Admin และ Employee ?>
       <div class="menu-container">
          <!-- ปุ่มค้นหาต้นไม้ -->
          <form class="search-form" action="treeshow.php" method="get">
-        <input type="text" id="treeSearch" name="tree_name" placeholder="ค้นหาชื่อต้นไม้">
+         <input type="text" id="treeSearch" name="tree_name" placeholder="ค้นหาชื่อต้นไม้">
         <button type="submit">ค้นหาต้นไม้</button>
         </form>
     <a href="treeinfo.php" class="menu-button blue"><div class="circle"></div>ข้อมูลต้นไม้</a>
@@ -152,24 +152,29 @@ $(function() {
     $("#treeSearch").autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: "menu_process.php", // ไฟล์ PHP ที่ให้คำแนะนำ
+                url: "menu_process.php",
                 dataType: "json",
-                data: {
-                    term: request.term
-                },
+                data: { term: request.term },
                 success: function(data) {
-                    response(data);
+                    response($.map(data["ต้นไม้"], function(item) {
+                        return {
+                            label: item.tree_name + "  " + item.tree_id,  // ← เปลี่ยนตรงนี้
+                            value: item.tree_name,
+                            id: item.tree_id
+                        };
+                    }));
                 }
             });
         },
         minLength: 1,
         select: function(event, ui) {
-            // เมื่อผู้ใช้เลือก suggestion แล้วให้ redirect ไปยัง treeshow.php
-            const selectedTreeName = ui.item.value;
-            //window.location.href = "treeshow.php?tree_name=" + encodeURIComponent(selectedTreeName);
+            // เมื่อเลือก ให้ redirect พร้อมทั้งชื่อและ ID
+            window.location.href = "http://localhost/treemap/map/treeshow.php?tree_name=" + 
+                encodeURIComponent(ui.item.value) + "&tree_id=" + ui.item.id;
         }
     });
 });
+
 
 </script>
 </body>
