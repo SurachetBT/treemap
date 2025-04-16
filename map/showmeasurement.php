@@ -162,7 +162,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<a href="menu.php" class="menu-button"><div class="circle"></div>กลับสู่หน้าแรก</a>
+<a href="check.php" class="menu-button"><div class="circle"></div>กลับสู่หน้าแรก</a>
 
 </body>
 </html>

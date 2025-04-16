@@ -155,6 +155,6 @@ if ($result->num_rows > 0) {
 // ปิดการเชื่อมต่อฐานข้อมูล
 $conn->close();
 ?>
-<a href="menu.php" class="menu-button pink"><div class="circle"></div>กลับสู่หน้าแรก</a>
+<a href="check.php" class="menu-button pink"><div class="circle"></div>กลับสู่หน้าแรก</a>
 </body>
 </html>

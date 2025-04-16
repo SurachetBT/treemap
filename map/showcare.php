@@ -149,7 +149,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<a href="menu.php" class="menu-button pink">
+<a href="check.php" class="menu-button pink">
     <div class="circle"></div>
     <span>กลับสู่หน้าแรก</span>
 </a>
