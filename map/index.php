@@ -136,26 +136,30 @@
     <a href="check.php" class="menu-button pink"><div class="circle"></div>กลับสู่หน้าแรก</a>
   </div>
   
-<script>
+  <script>
 $(function() {
     $("#treeSearch").autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: "menu_process.php", // ไฟล์ PHP ที่ให้คำแนะนำ
+                url: "menu_process.php",
                 dataType: "json",
-                data: {
-                    term: request.term
-                },
+                data: { term: request.term },
                 success: function(data) {
-                    response(data);
+                    response($.map(data["ต้นไม้"], function(item) {
+                        return {
+                            label: item.tree_name + "  " + item.tree_id,  // ← เปลี่ยนตรงนี้
+                            value: item.tree_name,
+                            id: item.tree_id
+                        };
+                    }));
                 }
             });
         },
         minLength: 1,
         select: function(event, ui) {
-            // เมื่อผู้ใช้เลือก suggestion แล้วให้ redirect ไปยัง treeshow.php
-            const selectedTreeName = ui.item.value;
-            //window.location.href = "treeshow.php?tree_name=" + encodeURIComponent(selectedTreeName);
+            // เมื่อเลือก ให้ redirect พร้อมทั้งชื่อและ ID
+            window.location.href = "http://localhost/treemap/map/treeshow.php?tree_name=" + 
+                encodeURIComponent(ui.item.value) + "&tree_id=" + ui.item.id;
         }
     });
 });
